@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+# kurulum.ps1'in indirdiği yazı tipleri
+fonts/

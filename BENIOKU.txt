@@ -1,0 +1,10 @@
+PDF ARACI - KURULUM
+
+1) kurulum.bat dosyasina cift tikla.
+   (Windows "bilgisayarinizi korudu" derse: Ek bilgi > Yine de calistir)
+2) 2-5 dakika bekle (kurulum icin internet gerekir; kurulduktan sonra uygulama internetsiz calisir). Bitince masaustunde "PDF Araci" simgesi olusur ve uygulama acilir.
+3) Bu klasoru artik silebilirsin.
+
+Guncelleme: yeni surumun klasorunde kurulum.bat dosyasini tekrar calistir.
+Kaldirma: kaldir.bat
+Kurmadan denemek: "PDF Aracı.pyw" dosyasina cift tikla (konsol acilmaz).
