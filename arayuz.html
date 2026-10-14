@@ -291,9 +291,11 @@ const TEMALAR = [["acik", "Açık", I.gunes], ["koyu", "Koyu", I.ay], ["sistem",
 let tema = "sistem";
 const koyuMedya = matchMedia("(prefers-color-scheme: dark)");
 const koyuMu = () => tema === "koyu" || (tema === "sistem" && koyuMedya.matches);
+document.documentElement.toggleAttribute("data-koyu", koyuMu()); // ayarlar gelmeden de doğru tema
 function temaUygula(t, kaydet) {
   tema = TEMALAR.some(x => x[0] === t) ? t : "sistem";
   document.documentElement.dataset.tema = tema;
+  document.documentElement.toggleAttribute("data-koyu", koyuMu());
   try {
     if (window.pywebview && window.pywebview.api) {
       Promise.resolve(api().baslik_tema(koyuMu())).catch(() => {});
@@ -358,8 +360,8 @@ function heroHTML(mini) {
     <div class="arka"><div class="isik"></div>
     <svg class="yorunge" viewBox="0 0 680 330">
       <defs>
-        <linearGradient id="yrnGrad" x1="0" x2="1"><stop offset="0" stop-color="#6DDCFF" stop-opacity=".15"/><stop offset=".5" stop-color="#2563FF" stop-opacity=".55"/><stop offset="1" stop-color="#6DDCFF" stop-opacity=".15"/></linearGradient>
-        <linearGradient id="okGrad" x1="0" x2="1"><stop offset="0" stop-color="#6DDCFF"/><stop offset="1" stop-color="#2563FF"/></linearGradient>
+        <linearGradient id="yrnGrad" x1="0" x2="1"><stop offset="0" stop-color="#6DDCFF" stop-opacity=".15"/><stop offset=".5" stop-color="#6C5CF0" stop-opacity=".55"/><stop offset="1" stop-color="#6DDCFF" stop-opacity=".15"/></linearGradient>
+        <linearGradient id="okGrad" x1="0" x2="1"><stop offset="0" stop-color="#6DDCFF"/><stop offset="1" stop-color="#6C5CF0"/></linearGradient>
         <linearGradient id="gokGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D7E9FF"/><stop offset="1" stop-color="#A9CBFF"/></linearGradient>
         <linearGradient id="dagGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C86FF"/><stop offset="1" stop-color="#1F55E6"/></linearGradient>
       </defs>

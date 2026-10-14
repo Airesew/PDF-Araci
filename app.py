@@ -899,7 +899,7 @@ def main():
     # Arayüz dosyadan, uygulamanın kendi yerel sunucusuyla açılır (stil ve yazı tipi dosyaları için)
     pencere = webview.create_window(UYGULAMA, url=kaynak_yolu("arayuz.html"), js_api=api, width=1320, height=860,
                                     min_size=(1040, 680),
-                                    background_color="#0B1020" if tema_koyu_mu() else "#F5F8FF")
+                                    background_color="#23254A" if tema_koyu_mu() else "#F5F5FC")
     api._pencere = pencere
     pencere.events.loaded += lambda: _surukle_birak_bagla(pencere)
     pencere.events.closing += lambda: _kapatma_onayi(api)
