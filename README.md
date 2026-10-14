@@ -1,34 +1,42 @@
 # PDF Aracı
 
-iLovePDF benzeri işleri internete dosya yüklemeden, tamamen bilgisayarında yapan bir Windows uygulaması. Dosyaların bilgisayarından çıkmaz.
+A local PDF toolkit for Windows: an offline alternative to online services like iLovePDF. Your files never leave your computer.
 
-## Neler yapabilir
+> The app's interface is in Turkish.
 
-- **Sayfa düzenle:** sayfaları sırala, döndür, sil, başka PDF ya da resim ekle
-- **Metin düzenle:** PDF'teki yazıyı tıklayıp değiştir; bilgisayarda aynı yazı tipi varsa onunla yazılır
-- **Birleştir / Ayır**
-- **Küçült:** üç seviye, kaydetmeden önce tahmini boyutu gösterir
+## Features
+
+- **Edit pages:** reorder, rotate, delete, insert pages from other PDFs or images
+- **Edit text:** click any text in a PDF and change it; rewritten with the same font when it's installed on your system
+- **Merge / Split**
+- **Compress:** three levels, with an estimated output size before saving
 - **JPG → PDF / PDF → JPG**
-- **PDF → Word / Word → PDF** (Word → PDF için Microsoft Word ya da LibreOffice gerekir)
+- **PDF → Word / Word → PDF** (Word → PDF requires Microsoft Word or LibreOffice)
 
-## Kurulum
+## Installation
 
-1. [Python](https://www.python.org/downloads/) kur ("Add python.exe to PATH" kutusunu işaretle).
-2. `kurulum.bat` dosyasına çift tıkla. Gerekli kütüphaneleri kurar, uygulamayı exe'ye çevirir ve masaüstüne kısayol koyar. Kurulum için internet gerekir; sonrasında uygulama internetsiz çalışır.
+1. Install [Python](https://www.python.org/downloads/) (check "Add python.exe to PATH").
+2. Double-click `kurulum.bat`. It installs the dependencies, builds an executable with PyInstaller, and adds desktop and Start menu shortcuts. Installation needs an internet connection; the app itself runs fully offline.
 
-Kurmadan denemek için: `pip install pywebview pymupdf pdf2docx docx2pdf pywin32 pillow fonttools`, sonra `PDF Aracı.pyw` dosyasına çift tıkla.
+To run without installing:
 
-Kaldırmak için `kaldir.bat`.
+```
+pip install pywebview pymupdf pdf2docx docx2pdf pywin32 pillow fonttools
+```
 
-## Yapı
+then double-click `PDF Aracı.pyw`.
 
-| Dosya | Görevi |
+To update, run `kurulum.bat` again from the new version's folder. To uninstall, run `kaldir.bat`.
+
+## Project structure
+
+| File | Purpose |
 | --- | --- |
-| `app.py` | Pencere (pywebview) ve arayüzün çağırdığı bütün PDF işlemleri (PyMuPDF) |
-| `metin.py` | Metin düzenleme: yazıyı bulma, silme ve aynı yazı tipiyle yeniden yazma |
-| `arayuz.html`, `stil.css` | Arayüz (tek sayfa, saf JS) |
-| `kurulum.ps1` | Kütüphaneleri kurar, PyInstaller ile exe yapar, kısayolları oluşturur |
+| `app.py` | Window (pywebview) and every PDF operation the UI calls (PyMuPDF) |
+| `metin.py` | Text editing: locating, removing and rewriting text with a matching font |
+| `arayuz.html`, `stil.css` | User interface (single page, vanilla JS) |
+| `kurulum.ps1` | Installs dependencies, builds the executable, creates shortcuts |
 
-## Lisans
+## License
 
-[GNU AGPL v3](LICENSE). Kullandığı PDF motoru PyMuPDF AGPL lisanslı olduğu için bu proje de AGPL ile yayınlanıyor.
+[GNU AGPL v3](LICENSE). The project uses PyMuPDF, which is AGPL-licensed, so it is released under the same license.
